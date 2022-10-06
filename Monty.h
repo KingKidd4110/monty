@@ -49,11 +49,11 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct free_struct - opcode and its function
+ * struct free_struct - opcode
  * @line: line buffer
- * @fp: file pointer
+ * @fp: pointer to file
  *
- * Description: opcode and its function
+ * Description: opcode + function
  * for stack, queues, LIFO, FIFO
  */
 

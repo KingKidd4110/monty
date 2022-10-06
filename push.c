@@ -1,9 +1,9 @@
-#include "Monty.h"
+#include "monty.h"
 
 /**
  * push - pushes a node to the top of the stack
- * @line_number: The executing line of the monty file
- * @stack: The head node of our stack
+ * @line_number: The executing line
+ * @stack: The head node of stack
  * Return: void
  */
 
