@@ -1,42 +1,24 @@
 #include "monty.h"
-
 /**
- * check_command - checks the parsed commands against function pointers
- * @op: operation
- * @line_num: line number
- * @stack: stack
- *
- */
-
-void check_command(stack_t **stack, char *op, unsigned int line_num)
+ * addnode - add node to the head stack
+ * @head: head
+ * @n: value
+ * Return: nothing
+*/
+void addnode(stack_t **head, int n)
 {
-	int i;
-	instruction_t ops[] = {
-		{"pall", pall},
-		{"push", push},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"mul", mul},
-		{"div", _div},
-		{"mod", mod},
-		{"pchar", pchar},
-		{NULL, NULL}
-	};
 
-	for (i = 0; ops[i].opcode; i++)
-		if (strcmp(op, ops[i].opcode) == 0)
-		{
-			ops[i].f(stack, line_num);
-			return;
-		}
-	if (op[0] != '#')
-	{
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_num, op);
-	early_free(stack);
-	exit(EXIT_FAILURE);
-	}
+	stack_t *new_node, *aux;
+
+	aux = *head;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{ printf("Error\n");
+		exit(0); }
+	if (aux)
+		aux->prev = new_node;
+	new_node->n = n;
+	new_node->next = *head;
+	new_node->prev = NULL;
+	*head = new_node;
 }
