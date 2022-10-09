@@ -1,26 +1,17 @@
 #include "monty.h"
-
 /**
- * early_free - Free
- * @head: The stack's head node
- * Return: void
- */
-
-void early_free(stack_t **head)
+* free_stack - frees linked list
+* @head: head
+*/
+void free_stack(stack_t *head)
 {
-	stack_t *this_node = *head;
-	stack_t *free_node;
+	stack_t *aux;
 
-	if (efs.line)
-		free(efs.line);
-	if (efs.fp)
-		fclose(efs.fp);
-
-	while (this_node)
+	aux = head;
+	while (head)
 	{
-		free_node = this_node;
-		this_node = this_node->next;
-		free(free_node);
+		aux = head->next;
+		free(head);
+		head = aux;
 	}
-	*head = NULL;
 }
