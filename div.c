@@ -2,8 +2,8 @@
 /**
  * __div - divides the top two elements of the stack.
  * @head: stack head
- * @counter: line_number
- * Return: no return
+ * @counter: line number
+ * Return: nothingf
 */
 void __div(stack_t **head, unsigned int counter)
 {
